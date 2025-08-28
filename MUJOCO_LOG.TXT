@@ -1,0 +1,9 @@
+Mon Aug 25 08:55:34 2025
+ERROR: could not initialize GLFW
+
+Mon Aug 25 08:55:39 2025
+ERROR: could not initialize GLFW
+
+Mon Aug 25 18:30:10 2025
+ERROR: could not initialize GLFW
+
