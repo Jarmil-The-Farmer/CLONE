@@ -5,8 +5,7 @@ import cyclonedds.idl as idl
 # from unitree_go.msg import LowCmd as LowCmd_
 # from unitree_go.msg import LowState as LowState_
 
-from unitree_hg.msg import LowCmd as HGLowCmd_
-from unitree_hg.msg import LowState as HGLowState_
+from unitree_sdk2py.idl.unitree_hg.msg.dds_ import LowCmd_ as HGLowCmd_, LowState_ as HGLowState_
 import ctypes
 import os
 import platform

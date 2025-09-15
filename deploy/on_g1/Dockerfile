@@ -1,5 +1,5 @@
 FROM ros:noetic-ros-base-focal
-
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     git \
     cmake \
@@ -54,9 +54,14 @@ RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && \
     catkin_make -DCATKIN_WHITELIST_PACKAGES=livox_ros_driver"
 
 
-RUN pip3 install --upgrade pip && \
-    pip3 install numpy==1.23.5 && \
-    pip3 install open3d==0.14.1 pyrsistent==0.18.0 opencv-python
+# RUN python3 -m pip install --upgrade pip && pip cache purge && \
+#     pip3 install numpy==1.23.5 && \
+#     pip3 install open3d==0.14.1 pyrsistent==0.18.0 opencv-python
+
+RUN python3 -m pip install --upgrade pip setuptools wheel && \
+    python3 -m pip install --ignore-installed 'PyYAML>=6.0.1' 'pyzmq<26' && \
+    python3 -m pip install --ignore-installed --no-cache-dir \
+        numpy==1.23.5 "open3d==0.13.0" pyrsistent==0.18.0 opencv-python
 
 RUN cd /catkin_ws/src && \
     git clone https://github.com/HViktorTsoi/FAST_LIO_LOCALIZATION.git && \
